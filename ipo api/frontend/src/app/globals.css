@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/*
+ * Tailwind v4: theme tokens live in CSS, there is no tailwind.config.js.
+ * The palette is deliberately narrow — three semantic colours and a neutral
+ * ramp — because a dashboard where everything is highlighted highlights nothing.
+ */
+@theme {
+  --color-surface: oklch(0.19 0.015 260);
+  --color-surface-raised: oklch(0.24 0.017 260);
+  --color-hairline: oklch(0.34 0.02 260);
+  --font-mono:
+    ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, monospace;
+}
+
+html,
+body {
+  background: var(--color-surface);
+  color: oklch(0.93 0.01 260);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Money and dates line up in columns only if the digits are the same width. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.45 0.02 260);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

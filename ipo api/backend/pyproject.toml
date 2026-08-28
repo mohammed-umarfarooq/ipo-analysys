@@ -1,0 +1,43 @@
+[project]
+name = "ipo-copilot-backend"
+version = "0.1.0"
+description = "IPO Copilot & Cashflow Scheduler - deterministic capital allocation engine"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.10",
+    "sqlalchemy>=2.0.36",
+    "aiosqlite>=0.20.0",
+    "python-dotenv>=1.0.1",
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    # Runtime, not just tests: app/providers/nse.py fetches the live issue calendar.
+    "httpx>=0.28.0",
+]
+
+[project.optional-dependencies]
+# Production Postgres driver. Chosen over asyncpg for Python 3.14 wheel coverage
+# and because langgraph's Postgres checkpointer is built on psycopg3.
+postgres = [
+    "psycopg[binary,pool]>=3.2.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.3",
+    "pytest-asyncio>=0.24.0",
+    # ASGI transport for testing the API without binding a port. httpx is a runtime
+    # dependency now (the NSE client), but the version floor for tests stays here.
+    "httpx>=0.28.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100

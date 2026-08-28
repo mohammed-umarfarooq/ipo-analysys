@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(py --version)",
+      "Bash(pip --version)",
+      "Bash(docker --version)",
+      "Bash(psql --version)",
+      "Bash(npm view *)",
+      "WebFetch(domain:pypi.org)",
+      "Bash(cd /tmp)",
+      "Bash(curl -sL \"https://unpkg.com/ai@7.0.73/dist/index.d.ts\" -o ai7.d.ts)",
+      "Bash(sed -n '/declare function tool/,/^declare/p' ai7.d.ts)",
+      "Bash(curl -sL \"https://unpkg.com/@ai-sdk/provider-utils@5.0.28/dist/index.d.ts\" -o pu5.d.ts)",
+      "Bash(python -c ' *)",
+      "Bash(uv run *)",
+      "Bash(PYTHONIOENCODING=utf-8 uv run python -m app.demo)",
+      "Bash(python -)",
+      "Bash(curl -sL -m 30 -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/131.0.0.0 Safari/537.36\" \"https://www.investorgain.com/report/live-ipo-gmp/331/\" -o ig.html -w \"http=%{http_code} bytes=%{size_download}\\\\n\")",
+      "Bash(grep -oE \"\\(data-read|/cloud/[^\\\\\"']{0,90}\\)\" ig.html)",
+      "Bash(curl -sL -m 25 -H \"User-Agent: Mozilla/5.0 Chrome/131.0.0.0\" \"https://www.chittorgarh.com/report/latest-ipo-gmp-grey-market-premium/21/\" -o cg.html -w \"http=%{http_code} bytes=%{size_download}\\\\n\")",
+      "Bash(grep -ohE \".{0,80}cloud/v2/report/data-read/.{0,400}\" igjs/8fec7c20be44a592.js)",
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -X POST http://127.0.0.1:8000/api/ipos/refresh-gmp)",
+      "Bash(curl -s -o /dev/null -w \"backend %{http_code}\\\\n\" http://127.0.0.1:8000/api/health)",
+      "Bash(curl -s -o /dev/null -w \"frontend %{http_code}\\\\n\" http://127.0.0.1:3000)",
+      "Bash(curl -s -X POST http://127.0.0.1:3000/api/chat -H \"Content-Type: application/json\" -d '{\"messages\":[{\"id\":\"1\",\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"text\":\"say ok\"}]}]}' -w \"\\\\n[http %{http_code}]\\\\n\")",
+      "Read(//c/Program Files/Google/Chrome/Application/**)",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Microsoft/Edge/Application/**)",
+      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; foreach\\($s in 16,48,256\\){ $i = New-Object System.Drawing.Icon\\('\\\\''ipo-copilot.ico'\\\\'', $s, $s\\); $b = $i.ToBitmap\\(\\); Write-Output \"$s -> $\\($b.Width\\)x$\\($b.Height\\)\"; $b.Save\\(\"preview-$s.png\", [System.Drawing.Imaging.ImageFormat]::Png\\) }')",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"./install-shortcuts.ps1\")",
+      "Bash(powershell -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''chrome.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*--app=http://localhost:3000*'\\\\'' } | Select-Object -First 1 ProcessId, @{n='\\\\''cmd'\\\\'';e={$_.CommandLine.Substring\\(0,[Math]::Min\\(110,$_.CommandLine.Length\\)\\)}} | Format-List')",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"./launch.ps1\" -NoBrowser)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(netstat -ano)",
+      "Bash(powershell -NoProfile -Command 'Get-Process chrome -ErrorAction SilentlyContinue | Where-Object { $_.MainWindowTitle } | Select-Object Id, MainWindowTitle | Format-Table -AutoSize')",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"./launch.ps1\")",
+      "Bash(powershell -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''chrome.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*--app=http://localhost:3000*'\\\\'' } | Select-Object ProcessId | Format-Table -AutoSize; Get-Process chrome | Where-Object { $_.MainWindowTitle } | Select-Object Id, MainWindowTitle | Format-Table -AutoSize')"
+    ]
+  }
+}
