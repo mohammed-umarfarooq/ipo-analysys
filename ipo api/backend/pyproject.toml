@@ -1,5 +1,5 @@
 [project]
-name = "ipo-copilot-backend"
+name = "ipo-copilot-backend" 
 version = "0.1.0"
 description = "IPO Copilot & Cashflow Scheduler - deterministic capital allocation engine"
 requires-python = ">=3.12"
